@@ -1,9 +1,12 @@
 const About = () => {
   return (
-    <div className="flex justify-center gap-32 items-center mt-12">
-      <img className="w-[450px]" src="/public/img/todo-photo.png" />
-      <div className="w-[500px]">
-        <h1 className="text-4xl mb-6 uppercase font-poppins text-orange-400">
+    <div className="flex flex-col lg:flex lg:flex-row justify-center gap-24 items-center mt-12">
+      <img
+        className="xl:w-[450px] w-[350px]"
+        src="/public/img/todo-photo.png"
+      />
+      <div className="w-[500px] ">
+        <h1 className="xl:text-4xl text-3xl mb-6 uppercase font-poppins text-orange-400">
           About Us
         </h1>
         <p className="font-montserrat">
