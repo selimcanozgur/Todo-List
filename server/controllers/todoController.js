@@ -1,6 +1,20 @@
 import Todo from "../model/todoModel.js";
 
-// Create Todo
+// Todo list
+export const getAllTodo = async (req, res) => {
+  try {
+    const todos = await Todo.find();
+    res.status(200).json({
+      status: "success",
+      length: todos.length,
+      todos,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Todo Create
 export const createTodo = async (req, res) => {
   try {
     const data = {
