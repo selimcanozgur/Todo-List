@@ -30,3 +30,17 @@ export const createTodo = async (req, res) => {
     console.log(err);
   }
 };
+
+// Todo Delete
+export const deleteTodo = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Todo.findByIdAndDelete(id);
+    res.status(204).json({
+      status: "success",
+      message: "Todo deleted",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

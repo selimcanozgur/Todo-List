@@ -9,7 +9,7 @@ const About = () => {
         <h1 className="xl:text-4xl text-3xl mb-6 uppercase font-poppins text-orange-400">
           About Us
         </h1>
-        <p className="font-montserrat">
+        <p className="font-montserrat tracking-wide text-zinc-500 font-medium">
           Hello! My name is Selimcan, a 26-year-old front-end developer. I enjoy
           enhancing user experiences and designing functional, modern web
           applications. This project is a Todo List Application that I created
@@ -19,7 +19,7 @@ const About = () => {
           effortlessly.
         </p>
         <br />
-        <p className="font-montserrat">
+        <p className="font-montserrat tracking-wider text-zinc-500 font-medium">
           This application is part of my journey to enhance my technical skills
           while offering real-world solutions. Feel free to reach out for more
           information about this and other projects!
