@@ -42,7 +42,6 @@ const ContextProvider = function ({ children }) {
       console.log(error);
     }
   };
-
   const deleteTodo = async (id) => {
     try {
       await fetch(`${API}/${id}`, {
@@ -58,6 +57,19 @@ const ContextProvider = function ({ children }) {
     }
   };
 
+  const updateTodo = async (id) => {
+    try {
+      await fetch(`${API}/${id}`, {
+        method: "UPDATE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Context.Provider
       value={{
@@ -67,6 +79,7 @@ const ContextProvider = function ({ children }) {
         setDescription,
         handleSubmit,
         deleteTodo,
+        updateTodo,
       }}
     >
       {children}
