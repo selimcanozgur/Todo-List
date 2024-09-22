@@ -17,10 +17,3 @@ Bu proje, MERN (MongoDB, Express, React, Node.js) Stack kullanılarak geliştiri
 - MongoDB (Yerel veya bulut tabanlı)
 - NPM veya Yarn (Tercihinize göre)
 
-### Adımlar
-
-1. **Depoyu Klonlayın:**
-
-   ```bash
-   git clone https://github.com/kullanici-adi/todo-list.git
-   cd todo-list
