@@ -3,13 +3,13 @@ import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { useTodo } from "../context/TodoContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TodoList = ({ todo }) => {
   const { description } = todo;
   const { deleteTodo } = useTodo();
   const [isCheck, setIsCheck] = useState(false);
-
-  console.log(isCheck);
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     try {
@@ -21,6 +21,10 @@ const TodoList = ({ todo }) => {
 
   const handleCheck = (e) => {
     setIsCheck(e.target.checked);
+  };
+
+  const handleUpdateTodo = () => {
+    navigate(`/todo/${todo._id}`);
   };
 
   return (
@@ -38,7 +42,7 @@ const TodoList = ({ todo }) => {
         />
         <div>{description}</div>
         <div className="flex flex-wrap gap-2">
-          <button>
+          <button onClick={handleUpdateTodo}>
             <CiEdit className="text-xl text-orange-500" />
           </button>
           <button onClick={handleDelete}>

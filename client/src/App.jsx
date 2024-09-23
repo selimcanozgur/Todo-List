@@ -5,6 +5,7 @@ import { Loading } from "./components/Loading";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const AppLayout = lazy(() => import("./layout/AppLayout"));
+const UpdatePage = lazy(() => import("./pages/UpdatePage"));
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
             <Route index element={<Navigate replace to="home" />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/todo/:id" element={<UpdatePage />} />
           </Route>
         </Routes>
       </Suspense>

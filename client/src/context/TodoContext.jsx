@@ -6,8 +6,8 @@ const Context = createContext();
 
 const ContextProvider = function ({ children }) {
   const [todos, setTodos] = useState([]);
-
   const [description, setDescription] = useState("");
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const getAllData = async () => {
@@ -57,14 +57,20 @@ const ContextProvider = function ({ children }) {
     }
   };
 
-  const updateTodo = async (id) => {
+  const updateTodo = async (id, updatedTodo) => {
     try {
       await fetch(`${API}/${id}`, {
-        method: "UPDATE",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(updatedTodo),
       });
+
+      const updatedTodos = todos.map((todo) =>
+        todo._id === id ? { ...todo, ...updatedTodo } : todo
+      );
+      setTodos(updatedTodos); // Todos'u güncelle
     } catch (err) {
       console.log(err);
     }
@@ -80,6 +86,8 @@ const ContextProvider = function ({ children }) {
         handleSubmit,
         deleteTodo,
         updateTodo,
+        modal,
+        setModal,
       }}
     >
       {children}
