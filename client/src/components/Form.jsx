@@ -6,7 +6,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        className="px-4 py-2 w-96 outline-none border border-orange-400 rounded-lg "
+        className="px-4 py-2 w-54 md:w-96 outline-none border border-orange-400 rounded-lg "
         placeholder="Add a new task..."
         type="text"
         value={description}

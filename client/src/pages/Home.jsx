@@ -3,7 +3,7 @@ import Form from "../components/Form";
 
 const HomePage = () => {
   return (
-    <div className="flex items-center flex-col mt-12">
+    <div className="flex items-center flex-col mt-12 w-full">
       <Form />
       <Todo />
     </div>
