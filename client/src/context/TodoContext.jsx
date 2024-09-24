@@ -7,6 +7,7 @@ const Context = createContext();
 const ContextProvider = function ({ children }) {
   const [todos, setTodos] = useState([]);
   const [description, setDescription] = useState("");
+  const [checkTodo, setCheckTodo] = useState(false);
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const ContextProvider = function ({ children }) {
     try {
       const datas = {
         description,
+        checkTodo,
       };
       const res = await fetch(API, {
         method: "POST",
@@ -67,10 +69,11 @@ const ContextProvider = function ({ children }) {
         body: JSON.stringify(updatedTodo),
       });
 
+      // Update local state
       const updatedTodos = todos.map((todo) =>
         todo._id === id ? { ...todo, ...updatedTodo } : todo
       );
-      setTodos(updatedTodos); // Todos'u güncelle
+      setTodos(updatedTodos);
     } catch (err) {
       console.log(err);
     }
@@ -88,6 +91,8 @@ const ContextProvider = function ({ children }) {
         updateTodo,
         modal,
         setModal,
+        checkTodo,
+        setCheckTodo,
       }}
     >
       {children}

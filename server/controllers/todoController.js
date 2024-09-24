@@ -19,6 +19,7 @@ export const createTodo = async (req, res) => {
   try {
     const data = {
       description: req.body.description,
+      checkTodo: req.body.checkTodo,
     };
     const newTodo = await Todo.create(data);
     res.status(201).json({
